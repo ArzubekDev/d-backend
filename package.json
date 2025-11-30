@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "prebuild": "pnpm install --frozen-lockfile",
     "build": "tsc",
     "start": "node ./dist/index.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "postinstall": "prisma generate"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
     "nodemon": "^3.1.11",
     "prisma": "6.18.0",
     "ts-node": "^10.9.2",

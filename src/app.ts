@@ -12,6 +12,7 @@ server.get("/", (req, res) => {
         success: true,
         message: "Server successfuly builded"
     })
+    
 })
 
 server.use("/api/v1", globalRoutes)
