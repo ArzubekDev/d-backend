@@ -48,6 +48,7 @@ model Session {
 model QuizCategory {
   id       String          @id @default(uuid())
   name     String          @unique
+  level    String          @default("easy")
   questions QuizQuestion[]
 }
 
