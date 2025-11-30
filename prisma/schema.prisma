@@ -45,20 +45,27 @@ model Session {
 
 
 // Quiz
+// Quiz Category
 model QuizCategory {
-  id       String          @id @default(uuid())
-  name     String          @unique
-  level    String          @default("easy")
+  id        String          @id @default(uuid())
+  name      String          @unique
+  level     String          @default("easy")
   questions QuizQuestion[]
+
+  @@map("quiz_categories")
 }
 
+// Quiz Question
 model QuizQuestion {
   id         String       @id @default(uuid())
   question   String
   options    Json
   answer     String
-  level      String       // "easy" | "medium" | "hard"
+  level      String        // easy | medium | hard
   timer      Int
   categoryId String
   category   QuizCategory @relation(fields: [categoryId], references: [id])
+
+  @@map("quiz_questions")
 }
+

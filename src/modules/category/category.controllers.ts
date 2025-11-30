@@ -3,7 +3,13 @@ import prisma from "../../config/prisma.js";
 
 const getCategory = async (req: Request, res: Response) => {
   try {
-    const categories = await prisma.quizCategory.findMany();
+    const categories = await prisma.quizCategory.findMany({
+      include: {
+        _count: {
+          select: { questions: true },
+        },
+      },
+    });
 
     return res.status(200).json({
       success: true,
