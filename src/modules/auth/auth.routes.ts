@@ -1,7 +1,7 @@
 import { Router } from "express";
-import authControllers from "./auth.controllers";
+import authControllers from "./auth.controllers.js"; 
+const authroutes = Router();
 
-const routes = Router()
-routes.get("/user", authControllers.getUsers)
+authroutes.get("/get", authControllers.getAuth);
 
-export default routes
+export default authroutes;
