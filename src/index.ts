@@ -13,5 +13,6 @@ const listenServer = () => {
     console.log(`Server crash: ${error}`);
     process.exit(1);
   }
+  
 };
 listenServer();
